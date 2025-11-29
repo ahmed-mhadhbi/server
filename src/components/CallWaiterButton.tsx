@@ -46,16 +46,19 @@ export default function CallWaiterButton({ tableNumber, onCall }: CallWaiterButt
     <button
       onClick={handleCall}
       disabled={isCalling || called}
-      className={`fixed bottom-24 right-6 z-50 p-5 rounded-full shadow-2xl transition-all duration-300 ${
+      className={`fixed bottom-24 right-6 z-50 rounded-full shadow-2xl transition-all duration-300 relative ${
         called
           ? 'bg-gradient-to-r from-green-500 to-green-600 text-white hover:scale-110'
           : isCalling
           ? 'bg-gray-400 text-white cursor-not-allowed'
           : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 hover:scale-110'
       }`}
+      style={{ width: '56px', height: '56px', padding: '0' }}
       aria-label="Call waiter"
     >
-      <Bell className={`w-6 h-6 ${called ? 'animate-pulse' : ''}`} />
+      <div className="flex items-center justify-center w-full h-full">
+        <Bell className={`w-6 h-6 ${called ? 'animate-pulse' : ''}`} />
+      </div>
       {called && (
         <span className="absolute -top-2 -right-2 bg-white text-green-600 text-xs font-bold rounded-full px-3 py-1.5 shadow-lg animate-bounce">
           Called!
