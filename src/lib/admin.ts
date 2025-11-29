@@ -5,7 +5,7 @@ import { initializeApp, getApps, cert, App } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import { getAuth } from 'firebase-admin/auth';
 
-let adminApp: App;
+let adminApp: App | undefined;
 
 if (!getApps().length) {
   try {
@@ -19,6 +19,7 @@ if (!getApps().length) {
   } catch (error) {
     console.error('Firebase Admin initialization error:', error);
     // In development, this might not be configured yet
+    adminApp = undefined;
   }
 } else {
   adminApp = getApps()[0];
