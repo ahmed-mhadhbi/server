@@ -19,24 +19,12 @@ export default function Cart({ tableNumber, onCheckout }: CartProps) {
   const total = getTotal();
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
-  if (items.length === 0) {
-    return (
-      <div className="fixed bottom-6 right-6 z-50">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-5 rounded-full shadow-2xl hover:shadow-orange-300/50 hover:scale-110 transition-all duration-300"
-        >
-          <ShoppingCart className="w-6 h-6" />
-        </button>
-      </div>
-    );
-  }
-
   return (
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-orange-500 to-orange-600 text-white p-5 rounded-full shadow-2xl hover:shadow-orange-300/50 hover:scale-110 transition-all duration-300 relative"
+        style={{ width: '56px', height: '56px' }}
       >
         <ShoppingCart className="w-6 h-6" />
         {itemCount > 0 && (
@@ -72,6 +60,16 @@ export default function Cart({ tableNumber, onCheckout }: CartProps) {
                 </div>
               )}
 
+              {items.length === 0 ? (
+                <div className="text-center py-12">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-100 mb-4">
+                    <ShoppingCart className="w-10 h-10 text-gray-400" />
+                  </div>
+                  <p className="text-gray-700 text-lg font-semibold mb-2">Your cart is empty</p>
+                  <p className="text-gray-500 text-sm">Add items from the menu to get started</p>
+                </div>
+              ) : (
+                <>
               <div className="space-y-4 mb-6">
                 {items.map((cartItem) => (
                   <div key={cartItem.item.id} className="flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
@@ -165,6 +163,8 @@ export default function Cart({ tableNumber, onCheckout }: CartProps) {
                   Clear Cart
                 </button>
               </div>
+                </>
+              )}
             </div>
           </div>
         </div>
