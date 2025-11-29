@@ -23,12 +23,16 @@ export default function Cart({ tableNumber, onCheckout }: CartProps) {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full shadow-2xl hover:shadow-orange-300/50 hover:scale-110 transition-all duration-300 relative"
-        style={{ width: '56px', height: '56px', padding: '0' }}
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full shadow-2xl hover:shadow-orange-300/50 hover:scale-110 transition-all duration-300 relative flex items-center justify-center"
+        style={{ 
+          width: '56px', 
+          height: '56px', 
+          position: 'fixed',
+          bottom: '24px',
+          right: '24px'
+        }}
       >
-        <div className="flex items-center justify-center w-full h-full">
-          <ShoppingCart className="w-6 h-6" />
-        </div>
+        <ShoppingCart className="w-6 h-6" />
         {itemCount > 0 && (
           <span className="absolute -top-2 -right-2 bg-red-500 text-white text-sm font-bold rounded-full w-7 h-7 flex items-center justify-center shadow-lg animate-pulse">
             {itemCount}
