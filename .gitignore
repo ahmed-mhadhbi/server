@@ -44,3 +44,8 @@ firestore-debug.log
 *-firebase-adminsdk-*.json
 server-8001c-firebase-adminsdk-*.json
 
+# Credentials and sensitive files
+env.txt
+*.txt
+!README.txt
+
