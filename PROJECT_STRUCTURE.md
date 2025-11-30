@@ -50,8 +50,6 @@ resteau-next/
 ├── storage.rules                # Firebase Storage rules
 ├── vercel.json                 # Vercel deployment config
 ├── README.md                   # Main documentation
-├── SETUP.md                    # Detailed setup guide
-├── QUICKSTART.md               # Quick start guide
 └── PROJECT_STRUCTURE.md        # This file
 ```
 
@@ -115,14 +113,5 @@ All TypeScript interfaces are defined in `types/index.ts`:
 - **Icons**: Lucide React
 - **QR Codes**: qrcode.react
 
-## Next Steps for Enhancement
 
-1. Add menu item image uploads
-2. Implement Firebase Cloud Messaging for push notifications
-3. Add order history for customers
-4. Implement table session management
-5. Add analytics and reporting
-6. Create admin panel for menu management
-7. Add payment integration
-8. Implement order cancellation with reasons
 
